@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 import time
 import csv
-time.times
+time.time()
 
 # creating an option variable and making it headless
 opt=Options()
@@ -15,8 +15,8 @@ driver=webdriver.Chrome(options=opt)
 action= ActionChains(driver)
 #
 file=open("info.csv","w")
-write_o=csv.writer(file, delimiter=' ',quotechar='|', quoting=csv.QUOTE_MINIMAL)
-for i in range(99999 ):
+write_o=csv.writer(file, delimiter=',')
+for i in range(100000):
     try:
         x="https://www.examtopics.com/discussions/amazon/view/"+str(i)+"-exam-aws-certified-solutions-architect-professional-sap-c02/"
         driver.get("https://www.examtopics.com/discussions/amazon/view/"+str(i)+"-exam-aws-certified-solutions-architect-professional-sap-c02/")
@@ -28,7 +28,7 @@ for i in range(99999 ):
             print("true")
             print(questionNumber)
             write_o.writerow([x,questionNumber])
-        else :
+        else:
             print("false")
     except NoSuchElementException:
         print("error")
