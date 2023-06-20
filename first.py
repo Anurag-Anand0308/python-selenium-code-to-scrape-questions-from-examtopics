@@ -28,7 +28,8 @@ write_o=csv.writer(file, delimiter=',')
 question_file=open("details.txt","w")
 
 #starting a loop with alll the main code
-for i in [97934,97935,90837]:
+for i in [97934,97935,90837,90945]:
+    print(i,end=" ")
     try:
         x="https://www.examtopics.com/discussions/amazon/view/"+str(i)+"-exam-aws-certified-solutions-architect-professional-sap-c02/"
         driver.get("https://www.examtopics.com/discussions/amazon/view/"+str(i)+"-exam-aws-certified-solutions-architect-professional-sap-c02/")
@@ -58,6 +59,9 @@ for i in [97934,97935,90837]:
             answer=driver.find_element(By.XPATH,"/html/body/div[2]/div/div[3]/div/div[1]/div[2]/div[3]/span[1]/span")
             question_file.write("Answer is  " )
             question_file.write(answer.text+"\n")
+            question_file.write("\n")
+            for k in range(300):
+                question_file.write("=")
             question_file.write("\n")
             
         else:
